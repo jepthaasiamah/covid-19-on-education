@@ -45,3 +45,5 @@ Created a grammar function seen here which checks for grammatical errors using t
 Converted to floating point numerical values where it was relevant. To do so it was a simple matter of changing the characters using the 'Numpy' Python library. With this result, it is much easier to sort by those numeric data points, namely, 'Number of learners enrolled in primary and secondary education programmes' and 'Number of learners enrolled in tertiary education programmes.' Then in the next rotation, I decided to perform some simple distribution analysis. To analyse the significance of these numbers, I think I could collect some data on the populations of these nations. I thought to use a percentile calculator to find the nations which are above or at the 75th quartile.
 
 <h4>Reflective </h4>
+It may be useful to add this data to a database as part of record keeping and for efficient access. To do this, SQL has various data control languages to create, model and query databases so I created a local server using a Microsoft SQL Server container installed in an isolated environment via docker.
+
