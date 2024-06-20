@@ -1,5 +1,5 @@
 # covid-19 impact-on-education
-### gathering, transformation and exploratory analysis
+### gathering, transformation, exploratory analysis and database ingestion
 https://en.wikipedia.org/wiki/Impact_of_the_COVID-19_pandemic_on_education
 
 <h2>Introduction</h2>
@@ -24,6 +24,9 @@ After reading the CSV file into a 'Pandas' frame, I checked for null values as t
 The table contains five columns, 'Country or territories', 'Number of learners enrolled from pre-primary to upper-secondary education', 'Number of learners enrolled in tertiary education programmes', 'Additional Information ' and 'Ref']</p>
 <img src='assets/raw_data.png'>
 <p>There are three main problems with the data gathered from the internet. Not all the data is under the correct field names, null values are present in multiple columns and spelling errors in the first column containing the names of relevant countries or territories. Null columns are unneeded, however, upon investigating each null column since some contain column names and potentially more misplaced data. To improve usability, it is good to make these changes.</p>
+
+<img src='assets/raw_data.png'>
+
 <ol type="a">
   <li>Data in wrong columns can be noticed starting with field names in the first record, index 0.</li>
   <li>Null columns contain misplaced values that may be part of the table. </li>
@@ -44,8 +47,8 @@ In the shot above, all columns contain appropriate, accurate data. The details w
 <p>Now with an idea of the final data, I atarted thinking of use cases such as ingestion into a database. I decided to create two CSV files, one with comma formatting for the numbers as they are hard to identify at first glance. The second file contains manipulative numeric data which is stored as an integer instead of 'string' as with the other file. This provides options to those with access.</p>
 <img src='assets/etl.png'>
 
-<p>It may be useful to add this data to a database as part of record keeping and for efficient access. To do this, SQL has various data control languages to create, model and query databases so I created a local server using a Microsoft SQL Server container installed in an isolated environment via an application called 'Docker'.
-One csv file contains comma formatting for numeric values which makes it easy to read the information and . This file I named 'Ingest.db' and the other </p>
+<p>It may be useful to add this data to a database as part of record keeping and for efficient access. To do this, SQL has various data control languages to create, model and query databases so I created a local server using a Microsoft SQL Server container installed in an isolated environment via virtualisation software, 'Docker'.
+One csv file contains comma formatting for numeric values which makes it easy to read the information and the other contains th. This was sent into  I named 'Ingest.db' and the other 'Impact.db' </p> 
 
 <h4>Reflective </h4>
 <p></p>
