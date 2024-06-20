@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 # reading the scraped csv file into a DataFrame 
-raw_data = pd.read_csv('raw_data.csv')
+raw_data = pd.read_csv('Data/covid_edu/scripts/csv/raw_data.csv')
 
 # removing columns with 120 (all) missing values and leaving other columns for transformation
 condition = raw_data.loc[:].isnull().sum() == 120
@@ -15,11 +15,6 @@ messy_data = all_data[['7', '5', '9', '10', '12']]
 
 # multiple data types and levels of measure are in columns. data can be lost if this is ignored 
 # need to identify main columns, group them then proceed to gathering remaining details which may be relevant to the final file
-
-# working on messy data to identify non-null values and make required change
-# messy_data.head(10) 
-# messy_data.columns.values
-
 
 # Ref column investigation - '9'
 nine = pd.DataFrame(data=messy_data['9'])
@@ -96,22 +91,17 @@ all_data.loc[119, '4'] = str(all_data.loc[119, '4']).split()[1]
 all_data.columns = [all_data.loc[0, '1'], all_data.loc[0, '3'], str(tertiary_col_name), str(info_col_name), str(ref_col_name)]
 all_data = all_data.rename(columns={'0 Number of learners enrolled in tertiary educat...\ndtype: object': 'Number of learners enrolled in tertiary education programmes'})
 
+# dropping ref here
+clean_data = all_data.drop(columns=['     9\n0  Ref'], axis=1)  
 
-clean_data = all_data.drop(columns=['     9\n0  Ref'], axis=1) # dropping ref here 
-
-# preparing 'numerical' columns for conversion
+# preparing strings in 'numerical' columns for conversion
 tertiary = (clean_data.iloc[:, -2].replace(['—a', '—', np.NaN], '0')).str.replace(',', '')
 formal = (clean_data.iloc[:, 1].replace(['—a', '—', np.NaN], '0')).str.replace(',', '')
 info = (clean_data.iloc[:, -1]).replace(np.NaN, 'no record')
 tf = pd.concat([tertiary, formal], keys=['tertiary', 'formal']) # inspecting the tertiary and formal columns 
 
-# making conversions o||n data types 
-formal_integer = pd.to_numeric(formal[1:], errors='raise', downcast='signed', )
-tertiary_integer = pd.to_numeric(tertiary[1:], errors='raise', downcast='signed')
-
-# integer column assignment 
-clean_data['Number of learners enrolled from pre-primary to upper-secondary education'] = formal_integer
-clean_data['Number of learners enrolled in tertiary education programmes'] = tertiary_integer
-
 #  complete additional information column
 clean_data['Additional information'] = info
+
+# saving this csv for further usage
+clean_csv = clean_data.loc[1:, :].to_csv('Data/covid_edu/scripts/csv/transit_data.csv')
