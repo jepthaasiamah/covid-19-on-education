@@ -1,7 +1,7 @@
 Readme covid-19 impact-on-education
 
 
-### gathering, transformation, exploratory analysis and database ingestion
+### gathering, transformation, database ingestion and exploratory analysis
 https://en.wikipedia.org/wiki/Impact_of_the_COVID-19_pandemic_on_education
 
 <h2>Introduction</h2>
@@ -40,7 +40,7 @@ After reading the CSV file into a 'Pandas' frame, I checked for null values as t
 
 <img src='assets/spellling_checker.png'>
 
-<h4> Extract, transform, load </h4>
+<h4> Data Modelling using petl, ETL library </h4>
 <p> The first task I took on, now with some viable data gathered was to modify column names. Simple field names, ['Country', 'FormalEnrolment', 'TertiaryEnrolment', 'AdditionalInformation'] simplifies the table for data ingestion. 
 <p>I decided to create two CSV files, one with comma formatting for the numbers as they are hard to identify at first glance. The second file contains manipulative numeric data which is stored as an integer instead of 'string' as with the other file. This provides options to those with access.</p>
 <img src='assets/to_database.png'>
@@ -49,7 +49,7 @@ After reading the CSV file into a 'Pandas' frame, I checked for null values as t
 <p>It may be useful to add this data to a database as part of record keeping and for efficient access. To do this, SQL has various data control languages to create, model and query databases so I created a local server using a Microsoft SQL Server container installed in an isolated environment via virtualisation software, 'Docker'.
 One csv file contains comma formatting for numeric values which makes it easy to read the information and the other contains th. This was sent into  I named 'Ingest.db' and the other 'Impact.db' </p> 
 
-<
+<h4>Querying the database</h4>
 
 <h4>Reflective </h4>
 This is an example of the potential beyond gathering data online. The procedure almost always precedes the process of improving usability allowing for record keeping or interpretation.
