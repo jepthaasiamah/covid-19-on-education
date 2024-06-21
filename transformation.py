@@ -100,6 +100,10 @@ formal = (clean_data.iloc[:, 1].replace(['—a', '—', np.NaN], '0')).str.repla
 info = (clean_data.iloc[:, -1]).replace(np.NaN, 'no record')
 tf = pd.concat([tertiary, formal], keys=['tertiary', 'formal']) # inspecting the tertiary and formal columns 
 
+# applying numeric columns to dataframe
+clean_data['Number of learners enrolled in tertiary education programmes'] = tertiary
+clean_data['Number of learners enrolled from pre-primary to upper-secondary education'] = formal
+
 #  complete additional information column
 clean_data['Additional information'] = info
 
