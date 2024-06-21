@@ -1,5 +1,5 @@
 # covid-19 impact-on-education
-### gathering, transformation, exploratory analysis and database ingestion
+### gathering, transformation, database ingestion and exploratory analysis
 https://en.wikipedia.org/wiki/Impact_of_the_COVID-19_pandemic_on_education
 
 <h2>Introduction</h2>
