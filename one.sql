@@ -1,7 +1,3 @@
-CREATE DATABASE Covid_Report;
-
-
-
 SELECT Country, FormalEnrolment, AdditionalInformation FROM Impact
 WHERE FormalEnrolment = TertiaryEnrolment
 
