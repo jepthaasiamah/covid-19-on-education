@@ -50,6 +50,8 @@ After reading the CSV file into a 'Pandas' frame, I checked for null values as t
 One csv file contains comma formatting for numeric values which makes it easy to read the information and the other contains th. This was sent into  I named 'Ingest.db' and the other 'Impact.db' </p> 
 
 <h4>Querying the database</h4>
+<p>With data modelled in our database, using SQL queries is a fantastic way to investigate various insights by asking different questions about it.</p>
+<img src='assets/sql_query.png'>
 
 <h4>Reflective </h4>
 This is an example of the potential beyond gathering data online. The procedure almost always precedes the process of improving usability allowing for record keeping or interpretation.
