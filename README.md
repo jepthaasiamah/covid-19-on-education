@@ -44,6 +44,7 @@ After reading the CSV file into a 'Pandas' frame, I checked for null values as t
 <p> The first task I took on, now with some viable data gathered was to modify column names. Simple field names, ['Country', 'FormalEnrolment', 'TertiaryEnrolment', 'AdditionalInformation'] simplifies the table for data ingestion. 
 <p>I decided to create two CSV files, one with comma formatting for the numbers as they are hard to identify at first glance. The second file contains manipulative numeric data which is stored as an integer instead of 'string' as with the other file. This provides options to those with access.</p>
 <img src='assets/to_database.png'>
+<img src='assets/to_db.png'>
 <p></p>
 
 <p>It may be useful to add this data to a database as part of record keeping and for efficient access. To do this, SQL has various data control languages to create, model and query databases so I created a local server using a Microsoft SQL Server container installed in an isolated environment via virtualisation software, 'Docker'.
@@ -52,6 +53,15 @@ One csv file contains comma formatting for numeric values which makes it easy to
 <h4>Querying the database</h4>
 <p>With data modelled in our database, using SQL queries is a fantastic way to investigate various insights by asking different questions about it.</p>
 <img src='assets/sql_query.png'>
+
+<p>
+  Within a few SQL queries, I was able to unpack useful information from the data. 
+  <ol type='a'>
+    <li>A query displays nations with no enrolment during the pandemic</li>
+        <img src='assets/
+    <li>Nations with </li>
+  </ol>
+</p>
 
 <h4>Reflective </h4>
 This is an example of the potential beyond gathering data online. The procedure almost always precedes the process of improving usability allowing for record keeping or interpretation.
