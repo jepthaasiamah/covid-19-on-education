@@ -58,10 +58,17 @@ One csv file contains comma formatting for numeric values which makes it easy to
   Within a few SQL queries, I was able to unpack useful information from the data. 
   <ol type='a'>
     <li>A query displays nations with no enrolment during the pandemic</li>
-        <img src='assets/
-    <li>Nations with </li>
+        <img src='assets/dbvis_q.png'>
+    <li>Top 10 Nations with the most number of formally enrolled students from greatest to lowest </li>
+        <img src='assets/identifier_wrong.png'>
+    <li></li>
   </ol>
 </p>
+
+<p> It was after this, I realised spelling errors were still present. After creating another database with a grammatically correct primary column and attempting to join results from the original database containing comma formatting on metrics, I noticed the omission of all the incorrect nation names as they were not a match. </p>
+<p> In the screenshot below, I ran another query; it combines results from the comma formatted metrics table and evaluates the condition using the numerically formatted metrics table. The sixth country is 'Azerbaijan' whereas in the top ten nations by formal enrolment, the sixth country is 'Austriag'; appropriate primary key columns allow the SQL join statement to combine relevant records. </p>
+<img src='assets/identifier_right.png'>
+
 
 <h4>Reflective </h4>
 This is an example of the potential beyond gathering data online. The procedure almost always precedes the process of improving usability allowing for record keeping or interpretation.
