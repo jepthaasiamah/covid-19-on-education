@@ -1,31 +1,30 @@
 Readme covid-19 impact-on-education
 
-
 ### gathering, transformation, database ingestion and exploratory analysis
 https://en.wikipedia.org/wiki/Impact_of_the_COVID-19_pandemic_on_education
 
-<h2>Introduction</h2>
+<h2> Introduction</h2>
 <p>In this project, I use Python's libraries to extract information from Wikipedia about the impact of Covid-19 on education. This data may be relevant for ingestion into a database with the right data transformation based on well-defined requirements. In this project, I have created a database with tables suitable for easy referencing or legibility and one for running SQL queries effectively. </p>
 <img src="assets/wikipedia_shot.png">
 
-<h2>Scenario</h2>
+<h2> Scenario</h2>
 <p>Covid-19 has affected society in many different ways... 
 The pandemic has had various impacts on our society; enrollment in educational institutions across populous nations and details about the duration provided may reveal differing attitudes. </p>
 
-<p>wikipedia: " The COVID-19 pandemic affected educational systems across the world.[1] The number of cases of COVID-19 started to rise in March 2020 and many educational institutions and universities underwent closure. Most countries decided to temporarily close educational institutions to reduce the spread of COVID-19. UNESCO estimates that at the height of the closures in April 2020, national educational shutdowns affected nearly 1.6 billion students in 200 countries: 94% of the student population and one-fifth of the global population. "</p>
+<p> wikipedia: " The COVID-19 pandemic affected educational systems across the world.[1] The number of cases of COVID-19 started to rise in March 2020 and many educational institutions and universities underwent closure. Most countries decided to temporarily close educational institutions to reduce the spread of COVID-19. UNESCO estimates that at the height of the closures in April 2020, national educational shutdowns affected nearly 1.6 billion students in 200 countries: 94% of the student population and one-fifth of the global population. "</p>
 
-<h2>Data collection</h2>
-<p>To gather the data, I used Python's intuitive web scraping library, 'BeautifulSoup' to send a request to the website host. Inspecting the site reveals some details to pick the specific data needed; the HTML class 'wikitable sortable' is its implementation. For pulling columns and rows the library provides a parser which looks for the relevant HTML tags, 'th' and 'tr' respectively. </p>
+<h2> Data collection</h2>
+<p> To gather the data, I used Python's intuitive web scraping library, 'BeautifulSoup' to send a request to the website host. Inspecting the site reveals some details to pick the specific data needed; the HTML class 'wikitable sortable' is its implementation. For pulling columns and rows the library provides a parser which looks for the relevant HTML tags, 'th' and 'tr' respectively. </p>
 <img src="assets/soup_script_!.jpg">
 
-<p>In the screenshot above, the code implementation can be observed. The code imports the 'Request' and 'BeautifulSoup', libraries which are used to get a response from the website host and to pull data under the specified HTML class table. Using the 'th' and 'tr' tags which specify columns and rows in HTML (hypertext markup language), 'BeautifulSoup' can find data from specific tables. In this code snippet, the 'table[0]' value represents the first table, 'Country-wide school closures by country/territory'. </p>
+<p> In the screenshot above, the code implementation can be observed. The code imports the 'Request' and 'BeautifulSoup', libraries which are used to get a response from the website host and to pull data under the specified HTML class table. Using the 'th' and 'tr' tags which specify columns and rows in HTML (hypertext markup language), 'BeautifulSoup' can find data from specific tables. In this code snippet, the 'table[0]' value represents the first table, 'Country-wide school closures by country/territory'. </p>
 
-<h2>Data transformation</h2>
+<h2> Data transformation</h2>
 <p>After the table as a CSV file, several columns contained null values. Using 'Pandas', 
 After reading the CSV file into a 'Pandas' frame, I checked for null values as the first inspection revealed some mostly empty columns; some columns in the raw data contain multiple data types. These inconsistencies can occur when gathering data so transformation is empirical. </p>
 
 <img src='assets/messy_data.png'>
-<p>There are three main problems with the data gathered from the internet. Not all the data is under the correct field names, null values are present in multiple columns and spelling errors in the first column containing the names of relevant countries or territories. Null columns are unneeded, however, upon investigating each null column since some contain column names and potentially more misplaced data. To improve usability, it is good to make these changes. 
+<p> There are three main problems with the data gathered from the internet. Not all the data is under the correct field names, null values are present in multiple columns and spelling errors in the first column containing the names of relevant countries or territories. Null columns are unneeded, however, upon investigating each null column since some contain column names and potentially more misplaced data. To improve usability, it is good to make these changes. </p>
   
 <p>The table contains five columns, 'Country or territories', 'Number of learners enrolled from pre-primary to upper-secondary education', 'Number of learners enrolled in tertiary education programmes', 'Additional Information ' and 'Ref'].</p>
 
@@ -66,10 +65,14 @@ One csv file contains comma formatting for numeric values which makes it easy to
 </p>
 
 <p> It was after this, I realised spelling errors were still present. After creating another database with a grammatically correct primary column and attempting to join results from the original database containing comma formatting on metrics, I noticed the omission of all the incorrect nation names as they were not a match. </p>
-<p> In the screenshot below, I ran another query; it combines results from the comma formatted metrics table and evaluates the condition using the numerically formatted metrics table. The sixth country is 'Azerbaijan' whereas in the top ten nations by formal enrolment, the sixth country is 'Austriag'; appropriate primary key columns allow the SQL join statement to combine relevant records. </p>
+<p> In the screenshot below, I ran another query; it combines results from the comma formatted metrics table ('Impact') and evaluates the condition using the numerically formatted metrics table ('Ingest'). </p>
 <img src='assets/identifier_right.png'>
-
+<p> The sixth country is 'Azerbaijan' whereas in the top ten nations by formal enrolment, the sixth country is 'Austriag'; appropriate primary key columns allow the SQL join statement to combine relevant records. </p>
+<img src='assets/primary_key.png'>
+<p> In the image above, the correct spellings for each row of primary key, 'Country' are registered in the database, 'Covid_Education_Report'</p>
+<p>The query below shows metrics formatted by commas for easy reading of information. With multiple versions of the transformed data, developers or enthusiasts may be able to analyse insights, expand on the research or incorporate it in a report or application. 
+Here's one last query to display the available information.</p>
+<img src='final_query.png'>
 
 <h4>Reflective </h4>
-This is an example of the potential beyond gathering data online. The procedure almost always precedes the process of improving usability allowing for record keeping or interpretation.
-<p></p>
+<p> This is an example of the potential beyond gathering data online. The procedure almost always precedes the process of improving usability allowing for record keeping or interpretation. </p>
