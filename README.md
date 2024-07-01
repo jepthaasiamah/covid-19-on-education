@@ -72,7 +72,7 @@ One csv file contains comma formatting for numeric values which makes it easy to
 <p> In the image above, the correct spellings for each row of primary key, 'Country' are registered in the database, 'Covid_Education_Report'</p>
 <p>The query below shows metrics formatted by commas for easy reading of information. With multiple versions of the transformed data, developers or enthusiasts may be able to analyse insights, expand on the research or incorporate it in a report or application. 
 Here's one last query to display the available information.</p>
-<img src='final_query.png'>
+<img src='assets/final_query.png'>
 
 <h4>Reflective </h4>
 <p> This is an example of the potential beyond gathering data online. The procedure almost always precedes the process of improving usability allowing for record keeping or interpretation. </p>
