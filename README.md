@@ -1,23 +1,23 @@
 ### gathering, transformation, database ingestion and exploratory analysis
 https://en.wikipedia.org/wiki/Impact_of_the_COVID-19_pandemic_on_education
 
-<h2> Introduction</h2>
+<h3> Introduction</h3>
 <p>In this project, I use Python's libraries to extract information from Wikipedia about the impact of Covid-19 on education. This data may be relevant for ingestion into a database with the right data transformation based on well-defined requirements. In this project, I have created a database with tables suitable for easy referencing or legibility and one for running SQL queries effectively. </p>
 <img src="assets/wikipedia_shot.png">
 
-<h2> Scenario</h2>
+<h3> Scenario</h3>
 <p>Covid-19 has affected society in many different ways... 
 The pandemic has had various impacts on our society; enrollment in educational institutions across populous nations and details about the duration provided may reveal differing attitudes. </p>
 
 <p> wikipedia: " The COVID-19 pandemic affected educational systems across the world.[1] The number of cases of COVID-19 started to rise in March 2020 and many educational institutions and universities underwent closure. Most countries decided to temporarily close educational institutions to reduce the spread of COVID-19. UNESCO estimates that at the height of the closures in April 2020, national educational shutdowns affected nearly 1.6 billion students in 200 countries: 94% of the student population and one-fifth of the global population. "</p>
 
-<h2> Data collection</h2>
+<h3> Data collection</h3>
 <p> To gather the data, I used Python's intuitive web scraping library, 'BeautifulSoup' to send a request to the website host. Inspecting the site reveals some details to pick the specific data needed; the HTML class 'wikitable sortable' is its implementation. For pulling columns and rows the library provides a parser which looks for the relevant HTML tags, 'th' and 'tr' respectively. </p>
 <img src="assets/soup_script_!.jpg">
 
 <p> In the screenshot above, the code implementation can be observed. The code imports the 'Request' and 'BeautifulSoup', libraries which are used to get a response from the website host and to pull data under the specified HTML class table. Using the 'th' and 'tr' tags which specify columns and rows in HTML (hypertext markup language), 'BeautifulSoup' can find data from specific tables. In this code snippet, the 'table[0]' value represents the first table, 'Country-wide school closures by country/territory'. </p>
 
-<h2> Data transformation</h2>
+<h3> Data transformation</h3>
 <p>After the table as a CSV file, several columns contained null values. Using 'Pandas', 
 After reading the CSV file into a 'Pandas' frame, I checked for null values as the first inspection revealed some mostly empty columns; some columns in the raw data contain multiple data types. These inconsistencies can occur when gathering data so transformation is empirical. </p>
 
@@ -37,7 +37,7 @@ After reading the CSV file into a 'Pandas' frame, I checked for null values as t
 
 <img src='assets/spellling_checker.png'>
 
-<h4> Data Modelling using petl, ETL library </h4>
+<h5> Data Modelling using petl, ETL library </h5>
 <p> The first task I took on, now with some viable data gathered was to modify column names. Simple field names, ['Country', 'FormalEnrolment', 'TertiaryEnrolment', 'AdditionalInformation'] simplifies the table for data ingestion. 
 <p>I decided to create two CSV files, one with comma formatting for the numbers as they are hard to identify at first glance. The second file contains manipulative numeric data which is stored as an integer instead of 'string' as with the other file. This provides options to those with access.</p>
 <img src='assets/to_database.png'>
@@ -47,7 +47,7 @@ After reading the CSV file into a 'Pandas' frame, I checked for null values as t
 <p>It may be useful to add this data to a database as part of record keeping and for efficient access. To do this, SQL has various data control languages to create, model and query databases so I created a local server using a Microsoft SQL Server container installed in an isolated environment via virtualisation software, 'Docker'.
 One csv file contains comma formatting for numeric values which makes it easy to read the information and the other contains th. This was sent into  I named 'Ingest.db' and the other 'Impact.db' </p> 
 
-<h4>Querying the database</h4>
+<h5>Querying the database</h5>
 <p>With data modelled in our database, using SQL queries is a fantastic way to investigate various insights by asking different questions about it.</p>
 <img src='assets/sql_query.png'>
 
@@ -72,5 +72,5 @@ One csv file contains comma formatting for numeric values which makes it easy to
 Here's one last query to display the available information.</p>
 <img src='assets/final_query.png'>
 
-<h4>Reflective </h4>
+<h5>Reflective </h5>
 <p> This is an example of the potential beyond gathering data online. The procedure almost always precedes the process of improving usability allowing for record keeping or interpretation. </p>
